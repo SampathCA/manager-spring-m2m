@@ -3,30 +3,28 @@ package com.marakana.contacts.entities;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
-public class Contact {
+public class Office {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column
-	protected String name;
+	private String name;
+	@OneToOne(cascade = CascadeType.ALL)
+	private Address address;
 
-	public Contact() {
+	public Office() {
 		super();
 	}
 
-	public Contact(String name) {
-		super();
+	public Office(String name, Address address) {
+		this.address = address;
 		this.name = name;
-
 	}
 
 	public URL getUrl(String link) throws MalformedURLException {
@@ -50,8 +48,17 @@ public class Contact {
 		this.name = name;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
-		return "Contact [id=" + id + ", name=" + name + "]";
+		return "Office [id=" + id + ", name=" + name + ", address=" + address
+				+ "]";
 	}
 }

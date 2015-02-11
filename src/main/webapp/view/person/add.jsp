@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Add contact</title>
+<title>Add person</title>
 </head>
 <body>
-	<h1>add contact:</h1>
-	<form action="contact?add" method="post">
+	<h1>add person:</h1>
+	<form action="person?add" method="post">
 		<input type="hidden" name="add">
 		<ul>
 			<li>name: <input type="text" name="name"></li>

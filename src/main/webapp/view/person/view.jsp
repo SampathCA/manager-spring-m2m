@@ -5,16 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>${contact.name}</title>
+<title>${person.name}</title>
 </head>
 <body>
-	<h1>${contact.name}</h1>
+	<h1>${person.name}</h1>
 
 	<ul>
-		<li>${contact.address.street}</li>
-		<li>${contact.address.city},${contact.address.state},${contact.address.zip}</li>
+		<li>${person.address.street}</li>
+		<li>${person.address.city},${person.address.state},${person.address.zip}</li>
 	</ul>
-	<a href="contact?edit&id=${contact.id}">edit contact</a> |
+	<a href="person?edit&id=${person.id}">edit person</a> |
 	<a href="contacts">back to contact list</a>
 </body>
 </html>
