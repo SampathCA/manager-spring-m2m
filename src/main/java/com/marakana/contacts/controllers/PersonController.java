@@ -18,36 +18,36 @@ public class PersonController {
 	private PersonRepository personRepository;
 
 	@RequestMapping(value = "/person", params = "add", method = RequestMethod.GET)
-	public String getAddContact() {
+	public String getAddPerson() {
 		return "person/add";
 	}
 
 	@RequestMapping(value = "/person", params = "edit", method = RequestMethod.GET)
-	public String getEditContact(@RequestParam long id, Model model) {
+	public String getEditPerson(@RequestParam long id, Model model) {
 		model.addAttribute("person", personRepository.findOne(id));
 		return "person/edit";
 	}
 
 	@RequestMapping(value = "/person", method = RequestMethod.GET)
-	public String getViewContact(@RequestParam long id, Model model) {
+	public String getViewPerson(@RequestParam long id, Model model) {
 		model.addAttribute("person", personRepository.findOne(id));
 		return "person/view";
 	}
 
 	@RequestMapping(value = "/person", params = "add", method = RequestMethod.POST)
-	public String getPostAddContact(@RequestParam String name,
+	public String postAddPerson(@RequestParam String name,
 			@RequestParam String street, @RequestParam String city,
 			@RequestParam String state, @RequestParam String zip) {
 		Address address = new Address(street, city, state, zip);
 		Person person = new Person(name, address);
 
-		person = personRepository.save(person);
+		personRepository.save(person);
 
 		return "redirect:person?id=" + person.getId();
 	}
 
 	@RequestMapping(value = "/person", params = "edit", method = RequestMethod.POST)
-	public String postEditContact(@RequestParam long id,
+	public String postEditPerson(@RequestParam long id,
 			@RequestParam String name, @RequestParam String street,
 			@RequestParam String city, @RequestParam String state,
 			@RequestParam String zip) {
@@ -61,13 +61,13 @@ public class PersonController {
 		address.setState(state);
 		address.setZip(zip);
 
-		person = personRepository.save(person);
+		personRepository.save(person);
 
 		return "redirect:person?id=" + person.getId();
 	}
 
 	@RequestMapping(value = "/person", params = "delete", method = RequestMethod.POST)
-	public String postDeleteContact(@RequestParam long id) {
+	public String postDeletePerson(@RequestParam long id) {
 		personRepository.delete(id);
 		return "redirect:contacts";
 	}

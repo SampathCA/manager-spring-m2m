@@ -28,7 +28,7 @@ public class Person extends Contact {
 	}
 
 	@Override
-	public String toString() {
-		return "Person [address=" + address + "]";
+	public String getUrl() {
+		return "person?id=" + getId();
 	}
 }

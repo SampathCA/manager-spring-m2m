@@ -5,15 +5,11 @@ import java.net.URL;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Office {
-	@Id
-	@GeneratedValue
-	private Long id;
+public class Office extends BaseEntity{
+
 	private String name;
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
@@ -32,14 +28,6 @@ public class Office {
 		return url;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -54,11 +42,5 @@ public class Office {
 
 	public void setAddress(Address address) {
 		this.address = address;
-	}
-
-	@Override
-	public String toString() {
-		return "Office [id=" + id + ", name=" + name + ", address=" + address
-				+ "]";
 	}
 }

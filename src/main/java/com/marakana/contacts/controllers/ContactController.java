@@ -16,7 +16,7 @@ public class ContactController {
 
 	@RequestMapping(value = "/contacts", method = RequestMethod.GET, produces = "text/html")
 	public String getContactList(Model model) {
-		model.addAttribute("contact", contactRepository.findAll());
+		model.addAttribute("contacts", contactRepository.findAll());
 		return "contact/list";
 	}
 }

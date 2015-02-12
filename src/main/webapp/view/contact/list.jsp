@@ -11,10 +11,11 @@
 	<ul>
 		<c:forEach var="contact" items="${contacts}">
 			<ul>
-				<li><a href="person?id=${contact.id}">${contact.name}</a></li>
+				<li><a href="${contact.url}">${contact.name}</a></li>
 			</ul>
 		</c:forEach>
 	</ul>
-	<a href="person?add">add a new person</a>
+	<a href="person?add">add a new person</a> |
+	<a href="company?add">add a new company</a>
 </body>
 </html>

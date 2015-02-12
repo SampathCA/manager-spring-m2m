@@ -16,7 +16,7 @@ public class Company extends Contact {
 		super();
 	}
 
-	public Company(String name,Set<Office> offices) {
+	public Company(String name, Set<Office> offices) {
 		super(name);
 		this.offices = offices;
 	}
@@ -32,5 +32,10 @@ public class Company extends Contact {
 	@Override
 	public String toString() {
 		return "Company [offices=" + offices + "]";
+	}
+
+	@Override
+	public String getUrl() {
+		return "company?id=" + getId();
 	}
 }
