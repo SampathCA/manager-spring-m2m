@@ -28,13 +28,14 @@ public class CompanyController {
 	}
 
 	@RequestMapping(value = "/company", method = RequestMethod.GET)
-	public String getViewContact(@RequestParam long id, Model model) {
+	public String getViewCompany(@RequestParam long id, Model model) {
 		model.addAttribute("company", companyRepository.findOne(id));
 		return "company/view";
 	}
 
 	@RequestMapping(value = "/company", params = "add", method = RequestMethod.POST)
-	public String postAddContact(@RequestParam String name) {
+	public String postAddCompany(@RequestParam String name) {
+		
 		Company company = new Company(name, null);
 
 		company = companyRepository.save(company);
@@ -43,7 +44,7 @@ public class CompanyController {
 	}
 
 	@RequestMapping(value = "/company", params = "edit", method = RequestMethod.POST)
-	public String postEditContact(@RequestParam long id,
+	public String postEditCompany(@RequestParam long id,
 			@RequestParam String name) {
 
 		Company company = companyRepository.findOne(id);
@@ -55,7 +56,7 @@ public class CompanyController {
 	}
 
 	@RequestMapping(value = "/company", params = "delete", method = RequestMethod.POST)
-	public String postDeleteContact(@RequestParam long id) {
+	public String postDeleteCompany(@RequestParam long id) {
 		companyRepository.delete(id);
 		return "redirect:contacts";
 	}
